@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="hgrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#0d0d0d"/>
+      <stop offset="1" stop-color="#161616"/>
+    </linearGradient>
+    <filter id="grain"><feTurbulence baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/></filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#hgrad)"/>
+  <g opacity="0.08">
+    <rect x="0" y="0" width="1600" height="900" fill="#D4AF37" rx="0" transform="rotate(15 800 450)"/>
+  </g>
+  <g>
+    <text x="80" y="220" font-family="Playfair Display, serif" font-size="84" fill="#F5F5F5">Kothiyanz</text>
+    <text x="80" y="300" font-family="Inter, sans-serif" font-size="28" fill="#AFAFAF">Warm hospitality • Memorable evenings • Koduvally</text>
+  </g>
+</svg>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kothiyanz | Premium Dining Experience in Koduvally</title>
+  <meta name="description" content="Experience premium ambience, signature flavors, and memorable evenings at Kothiyanz Restaurant, Koduvally.">
+  <meta property="og:title" content="Kothiyanz | Premium Dining Experience in Koduvally">
+  <meta property="og:description" content="Experience premium ambience, signature flavors, and memorable evenings at Kothiyanz Restaurant, Koduvally.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-poster.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/icons/logo.svg">
+  <meta name="theme-color" content="#0D0D0D">
+</head>
+<body class="theme-dark">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="false">
+    <div class="preloader-inner" role="img" aria-label="Loading Kothiyanz">
+      <div class="logo-wrap">
+        <!-- Inline SVG logo animation -->
+        <svg id="logo-anim" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#D4AF37"/>
+              <stop offset="1" stop-color="#FF9F1C"/>
+            </linearGradient>
+          </defs>
+          <rect width="200" height="60" rx="8" fill="#0D0D0D" />
+          <text x="100" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="28" fill="url(#g)">KOTHIYANZ</text>
+        </svg>
+      </div>
+      <div class="loader-bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" aria-hidden="true"><div class="cursor-dot"></div></div>
+
+  <!-- Progress bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header id="site-header" class="site-header">
+    <nav class="nav container" role="navigation" aria-label="Main Navigation">
+      <a href="#" class="brand" aria-label="Kothiyanz Home">
+        <img src="assets/icons/logo.svg" alt="Kothiyanz" class="brand-logo">
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#ambience">Ambience</a></li>
+        <li><a href="#flavours">Flavours</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero" role="region" aria-label="Hero">
+      <div class="hero-media" id="hero-media">
+        <!-- Video (optional) -->
+        <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata">
+          <source src="assets/videos/hero.mp4" type="video/mp4">
+        </video>
+        <!-- Fallback poster created as inline background via CSS; poster element kept for semantics -->
+        <img src="assets/images/hero-poster.svg" alt="Warm ambient dining at Kothiyanz" class="hero-poster" aria-hidden="true">
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content container">
+        <h1 class="hero-title">KOTHIYANZ</h1>
+        <p class="hero-sub">More Than a Meal.<br> An Experience Worth Returning To.</p>
+        <p class="hero-desc">A destination where memorable evenings, warm hospitality, and great food come together in the heart of Koduvally.</p>
+        <div class="hero-cta">
+          <a href="#story" class="btn btn-primary">Explore Experience</a>
+          <a href="#flavours" class="btn btn-ghost">View Menu</a>
+        </div>
+      </div>
+
+      <a href="#story" class="scroll-indicator" aria-hidden="true">
+        <span class="mouse"><span></span></span>
+        <span class="scroll-text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- OUR STORY -->
+    <section id="story" class="section story" role="region" aria-labelledby="story-title">
+      <div class="container grid story-grid">
+        <div class="story-media reveal">
+          <img src="assets/images/placeholder-1.svg" alt="Kothiyanz interior" loading="lazy">
+        </div>
+        <div class="story-body reveal delay-1">
+          <h2 id="story-title">Every memorable place begins with a simple idea.</h2>
+          <p class="lead">At Kothiyanz, food is only part of the story. The atmosphere, hospitality, conversations, and moments shared around the table create an experience guests remember.</p>
+          <p>We blend Kerala warmth, contemporary hospitality, and crafted flavors to welcome you home — while making every evening feel special.</p>
+          <div class="story-quote">"Warm hospitality, great food, memorable evenings."</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMBIENCE -->
+    <section id="ambience" class="section ambience" role="region" aria-labelledby="ambience-title">
+      <div class="container">
+        <h2 id="ambience-title" class="section-title">An Experience Beyond Food</h2>
+        <p class="muted">Warm lighting, comfortable seating, friends gathering, family moments, evening atmosphere, premium hospitality.</p>
+        <div class="ambience-grid">
+          <div class="amb-card reveal"><img src="assets/images/placeholder-2.svg" alt="Warm lighting" loading="lazy"><h3>Warm Lighting</h3></div>
+          <div class="amb-card reveal delay-1"><img src="assets/images/placeholder-3.svg" alt="Comfort seating" loading="lazy"><h3>Comfortable Seating</h3></div>
+          <div class="amb-card reveal delay-2"><img src="assets/images/placeholder-4.svg" alt="Friends gathering" loading="lazy"><h3>Friends Gathering</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE FLAVOURS -->
+    <section id="flavours" class="section flavours" role="region" aria-labelledby="flavours-title">
+      <div class="container">
+        <h2 id="flavours-title" class="section-title">Signature Flavours</h2>
+        <p class="muted">Curated dishes crafted to create memories.</p>
+        <div class="menu-grid">
+          <article class="food-card reveal">
+            <div class="media"><img src="assets/images/placeholder-5.svg" alt="Shawarma" loading="lazy"></div>
+            <h3>Shawarma</h3>
+            <p class="muted">Slow-marinated, rolled and seared to golden perfection.</p>
+          </article>
+          <article class="food-card reveal delay-1">
+            <div class="media"><img src="assets/images/placeholder-6.svg" alt="Loaded Fries" loading="lazy"></div>
+            <h3>Loaded Fries</h3>
+            <p class="muted">Crisp fries, house sauces, and daring toppings.</p>
+          </article>
+          <article class="food-card reveal delay-2">
+            <div class="media"><img src="assets/images/placeholder-7.svg" alt="Fresh Juices" loading="lazy"></div>
+            <h3>Fresh Juices</h3>
+            <p class="muted">Seasonal, vibrant, and refreshingly pure.</p>
+          </article>
+          <article class="food-card reveal delay-3">
+            <div class="media"><img src="assets/images/placeholder-8.svg" alt="Mint Lime" loading="lazy"></div>
+            <h3>Mint Lime</h3>
+            <p class="muted">A signature house refresher with mint brightness.</p>
+          </article>
+          <article class="food-card reveal delay-4">
+            <div class="media"><img src="assets/images/placeholder-9.svg" alt="Special Combos" loading="lazy"></div>
+            <h3>Special Combos</h3>
+            <p class="muted">Curated sets for sharing and celebration.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section gallery" role="region" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title" class="section-title">Gallery Experience</h2>
+        <div class="masonry-grid">
+          <div class="m-item reveal"><img src="assets/images/placeholder-10.svg" alt="Gallery image 1" loading="lazy"></div>
+          <div class="m-item reveal delay-1"><img src="assets/images/placeholder-11.svg" alt="Gallery image 2" loading="lazy"></div>
+          <div class="m-item reveal delay-2"><img src="assets/images/placeholder-12.svg" alt="Gallery image 3" loading="lazy"></div>
+          <div class="m-item reveal delay-3"><img src="assets/images/placeholder-13.svg" alt="Gallery image 4" loading="lazy"></div>
+          <div class="m-item reveal delay-4"><img src="assets/images/placeholder-14.svg" alt="Gallery image 5" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section id="instagram" class="section instagram" role="region" aria-labelledby="insta-title">
+      <div class="container">
+        <h2 id="insta-title" class="section-title">Follow The Flavor</h2>
+        <div class="insta-grid">
+          <div class="insta-card reveal"><img src="assets/images/placeholder-15.svg" alt="Insta 1" loading="lazy"><div class="badge">@kothiyanz</div></div>
+          <div class="insta-card reveal delay-1"><img src="assets/images/placeholder-16.svg" alt="Insta 2" loading="lazy"><div class="badge">Reel</div></div>
+          <div class="insta-card reveal delay-2"><img src="assets/images/placeholder-17.svg" alt="Insta 3" loading="lazy"><div class="badge">Customer</div></div>
+          <div class="insta-card reveal delay-3"><img src="assets/images/placeholder-18.svg" alt="Insta 4" loading="lazy"><div class="badge">Moments</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section testimonials" role="region" aria-labelledby="testi-title">
+      <div class="container">
+        <h2 id="testi-title" class="section-title">Loved By Our Guests</h2>
+        <div class="testi-slider">
+          <div class="testi-track">
+            <blockquote class="testi-card reveal">"A warm evening and unforgettable flavors. This is my new favorite place."<cite>— Asha R.</cite></blockquote>
+            <blockquote class="testi-card reveal delay-1">"The ambience feels cinematic and the hospitality is top-tier."<cite>— Rahim K.</cite></blockquote>
+            <blockquote class="testi-card reveal delay-2">"An experience worth returning to — every visit is special."<cite>— Mira S.</cite></blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / VISIT -->
+    <section id="visit" class="section visit" role="region" aria-labelledby="visit-title">
+      <div class="container visit-grid">
+        <div class="visit-body reveal">
+          <h2 id="visit-title" class="section-title">Visit Us</h2>
+          <address class="address">
+            <strong>Kothiyanz Restaurant</strong><br>
+            Wayanad Road<br>
+            Koduvally, Kerala
+          </address>
+          <p><strong>Opening Hours:</strong> 2:00 PM – 11:00 PM Daily</p>
+          <div class="visit-actions">
+            <a href="https://wa.me/" class="btn btn-ghost" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="tel:+0000000000" class="btn btn-primary">Call</a>
+            <a href="https://instagram.com/" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div class="visit-map reveal delay-1" aria-hidden="true">
+          <div class="map-placeholder">Google Maps Placeholder</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="f-brand">
+        <img src="assets/icons/logo.svg" alt="Kothiyanz logo" class="brand-logo small">
+        <p class="muted">Warm hospitality • Memorable evenings • Koduvally</p>
+      </div>
+      <nav class="f-nav" aria-label="Footer navigation">
+        <a href="#hero">Home</a>
+        <a href="#flavours">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <div class="f-contact">
+        <p>Call: <a href="tel:+0000000000">+91 00000 00000</a></p>
+        <p>Email: <a href="mailto:hello@kothiyanz.example">hello@kothiyanz.example</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> Kothiyanz. All rights reserved.</div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
