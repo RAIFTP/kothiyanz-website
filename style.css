@@ -81,9 +81,12 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-u
 .amb-card img{width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:12px}
 
 .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
-.food-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;transition:transform .4s ease,box-shadow .4s ease}
-.food-card:hover{transform:translateY(-8px);box-shadow:0 30px 50px rgba(0,0,0,0.6)}
-.food-card .media img{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+.food-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;transition:transform .4s ease,box-shadow .4s ease;overflow:hidden;border:1px solid rgba(255,255,255,0.04)}
+.food-card:hover{transform:translateY(-8px);box-shadow:0 30px 50px rgba(0,0,0,0.6);border-color:rgba(212,175,55,.15)}
+.food-card .media{overflow:hidden;border-radius:10px}
+.food-card .media img{width:100%;height:220px;object-fit:cover;transition:transform .4s ease;will-change:transform}
+.food-card:hover .media img{transform:scale(1.08)}
+.food-card h3{margin:12px 0 8px;color:var(--text);font-size:16px;font-weight:600}
 
 .masonry-grid{column-count:3;column-gap:16px}
 .m-item{break-inside:avoid;margin-bottom:16px;border-radius:10px;overflow:hidden}
@@ -94,13 +97,47 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-u
 .insta-card img{width:100%;height:180px;object-fit:cover;display:block}
 .insta-card .badge{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,0.45);padding:6px 8px;border-radius:6px;color:var(--text);font-weight:600}
 
-.testi-slider{overflow:hidden}
-.testi-track{display:flex;gap:20px;transition:transform .8s cubic-bezier(.2,.9,.16,1)}
-.testi-card{min-width:300px;padding:24px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));backdrop-filter: blur(6px)}
-.testi-card cite{display:block;margin-top:12px;color:var(--muted);font-weight:700}
+/* Testimonials */
+.testimonials{background:linear-gradient(180deg,transparent,rgba(212,175,55,0.03))}
+.testi-header{text-align:center;margin-bottom:48px}
+.testi-carousel{position:relative}
+.testi-container{position:relative;height:360px;overflow:hidden}
+.testi-card{position:absolute;inset:0;padding:32px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));backdrop-filter:blur(10px);border:1px solid rgba(212,175,55,0.15);opacity:0;transform:translateX(100%);transition:all .6s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.testi-card.active{opacity:1;transform:translateX(0);z-index:10}
+.testi-card.prev{transform:translateX(-100%)}
+.quote-icon{width:48px;height:48px;color:var(--gold);opacity:.4;margin-bottom:18px}
+.testi-card blockquote{margin:0;font-family:'Playfair Display',serif;font-size:22px;font-style:italic;line-height:1.6;color:var(--text);max-width:580px;margin-bottom:24px}
+.testi-card blockquote p{margin:0}
+.testi-card figcaption{display:flex;flex-direction:column;gap:4px}
+.testi-card strong{color:var(--gold);font-size:16px;font-weight:700;letter-spacing:.03em}
+.testi-card span{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
 
-.visit-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
-.map-placeholder{height:300px;border-radius:12px;background:linear-gradient(180deg,#111111,#0d0d0d);display:flex;align-items:center;justify-content:center;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+.testi-controls{display:flex;align-items:center;justify-content:center;gap:32px;margin-top:32px}
+.testi-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(212,175,55,.3);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease}
+.testi-btn:hover{border-color:var(--gold);background:rgba(212,175,55,.1);transform:scale(1.08)}
+.testi-btn svg{width:20px;height:20px}
+
+.testi-dots{display:flex;gap:12px}
+.dot{width:10px;height:10px;border-radius:50%;border:none;background:rgba(255,255,255,.15);cursor:pointer;transition:all .3s ease}
+.dot.active{width:28px;background:var(--gold);border-radius:6px}
+
+.visit-grid{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:start}
+.visit-details{margin:24px 0}
+.detail-item{display:flex;gap:16px;margin-bottom:20px;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.16,1)}
+.detail-item.visible{opacity:1;transform:none}
+.detail-icon{width:48px;height:48px;border-radius:50%;border:1px solid rgba(212,175,55,.3);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+.detail-icon svg{width:24px;height:24px}
+.detail-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.detail-text{color:var(--text);margin:0;font-size:15px}
+.detail-text a{color:var(--gold);text-decoration:none;transition:opacity .3s}
+.detail-text a:hover{opacity:.8}
+
+.visit-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.visit-actions .btn{font-size:13px;padding:11px 16px}
+.visit-actions .btn svg{margin-right:6px}
+
+.visit-map{border-radius:12px;overflow:hidden;height:360px;border:1px solid rgba(255,255,255,.05)}
+.visit-map iframe{width:100%;height:100%;border:none;filter:grayscale(.4) invert(.92) contrast(.9)}
 
 /* Footer */
 .site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:40px 0;margin-top:40px}
@@ -111,6 +148,13 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-u
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.16,1)}
 .reveal.visible{opacity:1;transform:none}
 .reveal.delay-1{transition-delay:.12s}.reveal.delay-2{transition-delay:.24s}.reveal.delay-3{transition-delay:.36s}.reveal.delay-4{transition-delay:.48s}
+
+/* Parallax effect */
+.parallax-item{will-change:transform}
+
+/* Enhanced story section */
+.story-media{overflow:hidden;border-radius:12px}
+.story-media img{display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.9,.16,1);will-change:transform}
 
 /* Responsive */
 @media (max-width:1024px){

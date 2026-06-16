@@ -187,12 +187,68 @@
     <!-- TESTIMONIALS -->
     <section id="testimonials" class="section testimonials" role="region" aria-labelledby="testi-title">
       <div class="container">
-        <h2 id="testi-title" class="section-title">Loved By Our Guests</h2>
-        <div class="testi-slider">
-          <div class="testi-track">
-            <blockquote class="testi-card reveal">"A warm evening and unforgettable flavors. This is my new favorite place."<cite>— Asha R.</cite></blockquote>
-            <blockquote class="testi-card reveal delay-1">"The ambience feels cinematic and the hospitality is top-tier."<cite>— Rahim K.</cite></blockquote>
-            <blockquote class="testi-card reveal delay-2">"An experience worth returning to — every visit is special."<cite>— Mira S.</cite></blockquote>
+        <div class="testi-header">
+          <h2 id="testi-title" class="section-title">Loved By Our Guests</h2>
+          <p class="muted">Real moments, real memories, real love for Kothiyanz.</p>
+        </div>
+        <div class="testi-carousel" role="region" aria-label="Customer testimonials">
+          <div class="testi-container">
+            <figure class="testi-card active" data-index="0">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.868-2-4-2-2.667-4-4-6-3s-5.5 2.6-5.5 5.5c0 3 1.5 7 4 9.5s4 5.5 4 5.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <blockquote>
+                <p>It does not feel like a restaurant — it feels like being welcomed into someone's home. We came for the shawarma and stayed for the whole evening.</p>
+              </blockquote>
+              <figcaption>
+                <strong>Aiswarya Menon</strong>
+                <span>Regular Guest</span>
+              </figcaption>
+            </figure>
+
+            <figure class="testi-card" data-index="1">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.868-2-4-2-2.667-4-4-6-3s-5.5 2.6-5.5 5.5c0 3 1.5 7 4 9.5s4 5.5 4 5.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <blockquote>
+                <p>The lighting, the music, the way the staff remember you. Kothiyanz has quietly become our family's favourite place in Koduvally.</p>
+              </blockquote>
+              <figcaption>
+                <strong>Rahul Nair</strong>
+                <span>Visited 12 times</span>
+              </figcaption>
+            </figure>
+
+            <figure class="testi-card" data-index="2">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.868-2-4-2-2.667-4-4-6-3s-5.5 2.6-5.5 5.5c0 3 1.5 7 4 9.5s4 5.5 4 5.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <blockquote>
+                <p>Easily the best loaded fries I've had, and the ambience is something else entirely. A genuine hidden gem worth the drive.</p>
+              </blockquote>
+              <figcaption>
+                <strong>Fathima Riza</strong>
+                <span>Food Blogger</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="testi-controls">
+            <button class="testi-btn prev" aria-label="Previous testimonial" data-direction="prev">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="testi-dots">
+              <button class="dot active" data-index="0" aria-label="Testimonial 1" aria-current="true"></button>
+              <button class="dot" data-index="1" aria-label="Testimonial 2"></button>
+              <button class="dot" data-index="2" aria-label="Testimonial 3"></button>
+            </div>
+            <button class="testi-btn next" aria-label="Next testimonial" data-direction="next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -203,20 +259,73 @@
       <div class="container visit-grid">
         <div class="visit-body reveal">
           <h2 id="visit-title" class="section-title">Visit Us</h2>
-          <address class="address">
-            <strong>Kothiyanz Restaurant</strong><br>
-            Wayanad Road<br>
-            Koduvally, Kerala
-          </address>
-          <p><strong>Opening Hours:</strong> 2:00 PM – 11:00 PM Daily</p>
-          <div class="visit-actions">
-            <a href="https://wa.me/" class="btn btn-ghost" target="_blank" rel="noopener">WhatsApp</a>
-            <a href="tel:+0000000000" class="btn btn-primary">Call</a>
-            <a href="https://instagram.com/" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a>
+          <p class="muted">Tucked along the Wayanad Road in Koduvally — come for an evening, leave with a memory.</p>
+          
+          <div class="visit-details">
+            <div class="detail-item reveal delay-1">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <p class="detail-label">Location</p>
+                <p class="detail-text">Wayanad Road, Koduvally, Kerala</p>
+              </div>
+            </div>
+
+            <div class="detail-item reveal delay-2">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <p class="detail-label">Hours</p>
+                <p class="detail-text">2:00 PM – 11:00 PM Daily</p>
+              </div>
+            </div>
+
+            <div class="detail-item reveal delay-3">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="detail-label">Contact</p>
+                <p class="detail-text"><a href="tel:+91000000000">+91 00000 00000</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="visit-actions reveal delay-4">
+            <a href="tel:+91000000000" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Call
+            </a>
+            <a href="https://wa.me/91000000000" class="btn btn-ghost" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.445 0-2.848.474-3.976 1.369l-.285.214-2.95-.776.79 2.865.182.285c-.959 1.164-1.469 2.662-1.469 4.224 0 3.976 3.24 7.215 7.22 7.215h.003c1.925 0 3.773-.741 5.152-2.093 1.38-1.352 2.141-3.195 2.141-5.122 0-3.976-3.24-7.215-7.22-7.215m5.273 11.15c-2.897 2.845-7.662 3.465-11.58 1.466C7.126 20.524 3 18.22 3 13.272 3 7.635 7.635 3 13.272 3c5.638 0 10.272 4.635 10.272 10.272 0 2.572-.972 4.99-2.733 6.851"/>
+              </svg>
+              WhatsApp
+            </a>
+            <a href="https://instagram.com/kothiyanz" class="btn btn-ghost" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+              </svg>
+              Instagram
+            </a>
           </div>
         </div>
-        <div class="visit-map reveal delay-1" aria-hidden="true">
-          <div class="map-placeholder">Google Maps Placeholder</div>
+        <div class="visit-map reveal delay-1" role="img" aria-label="Location map showing Kothiyanz Restaurant in Koduvally">
+          <iframe title="Map showing Kothiyanz in Koduvally, Kerala" src="https://www.google.com/maps?q=Koduvally,Kerala&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen=""></iframe>
         </div>
       </div>
     </section>

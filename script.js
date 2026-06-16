@@ -52,6 +52,14 @@
     const total = doc.scrollHeight - doc.clientHeight;
     const pct = total>0 ? Math.min(100, Math.round((y/total)*100)) : 0;
     scrollProgress.style.width = pct + '%';
+    
+    // Parallax effect for story image
+    const storyMedia = document.querySelector('.story-media img');
+    if(storyMedia){
+      const rect = storyMedia.getBoundingClientRect();
+      const offset = (rect.top / window.innerHeight) * 30;
+      storyMedia.style.transform = `translateY(${offset * 0.5}px)`;
+    }
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
@@ -79,6 +87,7 @@
 
   // IntersectionObserver reveal
   const reveals = document.querySelectorAll('.reveal');
+  const detailItems = document.querySelectorAll('.detail-item');
   if('IntersectionObserver' in window){
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
@@ -90,8 +99,10 @@
       });
     },{threshold:0.12});
     reveals.forEach(r=>io.observe(r));
+    detailItems.forEach(d=>io.observe(d));
   } else {
     reveals.forEach(r=>r.classList.add('visible'));
+    detailItems.forEach(d=>d.classList.add('visible'));
   }
 
   // Custom cursor
@@ -111,19 +122,59 @@
     window.addEventListener('touchstart', ()=> cursor.style.display = 'none');
   })();
 
-  // Testimonial slider (simple)
+  // Enhanced testimonial carousel
   (function(){
-    const track = document.querySelector('.testi-track');
-    if(!track) return;
-    const cards = track.children;
-    let idx = 0;
-    function update(){
-      const w = cards[0].getBoundingClientRect().width + 20; // gap
-      track.style.transform = `translateX(${-idx * w}px)`;
+    const container = document.querySelector('.testi-container');
+    const cards = document.querySelectorAll('.testi-card');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('[data-direction="prev"]');
+    const nextBtn = document.querySelector('[data-direction="next"]');
+    
+    if(!container || !cards.length) return;
+    
+    let current = 0;
+    let autoplayId = null;
+    
+    function updateCarousel(){
+      cards.forEach((card, i) => {
+        card.classList.remove('active', 'prev');
+        if(i === current) card.classList.add('active');
+        else if(i < current) card.classList.add('prev');
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+        dot.setAttribute('aria-current', i === current ? 'true' : 'false');
+      });
     }
-    window.addEventListener('resize', update);
-    setInterval(()=>{ idx = (idx + 1) % cards.length; update(); }, 4200);
-    update();
+    
+    function next(){
+      current = (current + 1) % cards.length;
+      updateCarousel();
+      resetAutoplay();
+    }
+    
+    function prev(){
+      current = (current - 1 + cards.length) % cards.length;
+      updateCarousel();
+      resetAutoplay();
+    }
+    
+    function goTo(i){
+      current = i;
+      updateCarousel();
+      resetAutoplay();
+    }
+    
+    function resetAutoplay(){
+      clearInterval(autoplayId);
+      autoplayId = setInterval(next, 6000);
+    }
+    
+    prevBtn?.addEventListener('click', prev);
+    nextBtn?.addEventListener('click', next);
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    
+    resetAutoplay();
   })();
 
   // Lightbox for gallery
