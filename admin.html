@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard - Kothiyanz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+  <style>
+    /* minimal container fallbacks if admin.css not loaded */
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:20px}
+    nav button{margin-right:8px}
+    .section{margin-top:16px}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #ddd;padding:8px}
+  </style>
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+
+  <div id="login-section">
+    <h2>Login</h2>
+    <input id="email" placeholder="email" />
+    <input id="password" type="password" placeholder="password" />
+    <button id="loginBtn">Sign In</button>
+    <button id="logoutBtn" style="display:none;">Sign Out</button>
+  </div>
+
+  <div id="dashboard" style="display:none;">
+    <nav>
+      <button data-section="orders">Orders</button>
+      <button data-section="reservations">Reservations</button>
+      <button data-section="feedback">Feedback</button>
+      <button data-section="menu">Menu</button>
+      <button data-section="tables">Tables</button>
+      <button data-section="users">Users</button>
+    </nav>
+
+    <section id="orders" class="section"></section>
+    <section id="reservations" class="section"></section>
+    <section id="feedback" class="section"></section>
+    <section id="menu" class="section"></section>
+    <section id="tables" class="section"></section>
+    <section id="users" class="section" style="display:none;">
+      <h2>Users & Roles</h2>
+      <div class="card">
+        <p>Promote a user to admin using the deployed Cloud Function <code>setAdmin</code>.</p>
+        <div class="controls">
+          <input id="fn-url" placeholder="Function URL (setAdmin)">
+          <input id="fn-secret" placeholder="Admin secret">
+          <input id="user-uid" placeholder="User UID to promote">
+          <button id="promoteBtn">Promote to Admin</button>
+        </div>
+        <pre id="promoteOut" style="margin-top:8px;background:#f7f7f7;padding:8px;border-radius:4px"></pre>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

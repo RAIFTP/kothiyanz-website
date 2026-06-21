@@ -1,0 +1,13 @@
+{
+  "name": "kothiyanz-functions",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "18"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.3.0",
+    "twilio": "^4.9.0"
+  }
+}

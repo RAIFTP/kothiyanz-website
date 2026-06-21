@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Firestore Test Harness</title>
+  <style>body{font-family:Inter,Arial;padding:20px}button{margin:6px}</style>
+</head>
+<body>
+  <h1>Firestore Test Harness</h1>
+  <p>Make sure `firebase-config.js` contains your Firebase config and Firestore is enabled.</p>
+  <div>
+    <button id="initData">Init Sample Data</button>
+    <button id="crudTests">Run CRUD Tests</button>
+  </div>
+  <link rel="stylesheet" href="test-firestore.css">
+  <pre id="output"></pre>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="test-firestore.js"></script>
+</body>
+</html>

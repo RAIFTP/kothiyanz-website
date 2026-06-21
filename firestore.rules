@@ -1,0 +1,94 @@
+// firestore.rules - example rules to get started. REVIEW before production.
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    // Validate basic types and ranges for menu items
+    function validMenu(data) {
+      return data.keys().hasAll(['name','price'])
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 100
+        && data.price is number && data.price >= 0;
+    }
+
+    match /menu/{menuId} {
+      allow read: if true;
+      allow create: if isAdmin() && validMenu(request.resource.data);
+      allow update: if isAdmin() && validMenu(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    // Tables
+    function validTable(data){
+      return data.keys().hasAny(['name','status'])
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 50
+        && (data.status in ['Available','Occupied','Reserved','Billing']);
+    }
+
+    match /tables/{tableId} {
+      allow read: if true;
+      allow create: if isAdmin() && validTable(request.resource.data);
+      allow update: if isAdmin() && validTable(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    // Orders - customers can create orders; validate structure
+    function validOrder(data){
+      return data.keys().hasAll(['items','status','createdAt'])
+        && data.items is list
+        && data.items.size() > 0
+        && data.items.size() <= 50
+        && data.items.reduce((acc, itm) => acc && (itm.name is string && itm.qty is number && itm.qty > 0 && itm.price is number && itm.price >= 0), true)
+        && data.status is string
+        && data.createdAt is string;
+    }
+
+    match /orders/{orderId} {
+      allow create: if validOrder(request.resource.data);
+      allow read: if isAdmin() || (request.auth != null && resource.data.customerId == request.auth.uid);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Reservations
+    function validReservation(data){
+      return data.keys().hasAll(['name','phone','date','time','guests'])
+        && data.name is string && data.name.size() <= 100
+        && data.phone is string && data.phone.size() <= 40
+        && data.date is string && data.time is string
+        && data.guests is number && data.guests > 0 && data.guests <= 50;
+    }
+
+    match /reservations/{resId} {
+      allow create: if validReservation(request.resource.data);
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Feedback
+    function validFeedback(data){
+      return data.keys().hasAll(['customer','rating'])
+        && data.customer is string && data.customer.size() <= 100
+        && data.rating is number && data.rating >= 1 && data.rating <= 5;
+    }
+
+    match /feedback/{fId} {
+      allow create: if validFeedback(request.resource.data);
+      allow read, delete: if isAdmin();
+    }
+
+    // Users collection - admin only
+    match /users/{uid} {
+      allow read, create, update, delete: if isAdmin();
+    }
+
+    // Deny everything else by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+  }
+}

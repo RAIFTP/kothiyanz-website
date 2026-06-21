@@ -1,0 +1,3 @@
+body{font-family:Inter,Arial;padding:20px}
+button{margin:6px}
+#output{white-space:pre-wrap;background:#f7f7f7;border:1px solid #eee;padding:12px;height:320px;overflow:auto}

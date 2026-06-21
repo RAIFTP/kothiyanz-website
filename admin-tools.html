@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Tools - Kothiyanz</title>
+  <style>body{font-family:Inter,Arial;padding:20px}label{display:block;margin-top:8px}input{width:100%;padding:6px;margin-top:4px}button{margin-top:12px}</style>
+</head>
+<body>
+  <h1>Admin Tools</h1>
+  <p>Use this tool after you deploy `setAdmin` Cloud Function. Provide the function URL and secret.</p>
+  <label>Function URL<input id="fnUrl" placeholder="https://us-central1-.../setAdmin"></label>
+  <label>Admin secret<input id="fnSecret" placeholder="your-secret"></label>
+  <label>User UID<input id="userUid" placeholder="firebase uid to make admin"></label>
+  <div style="margin-top:8px">
+    <button id="setAdminBtn">Set Admin Claim</button>
+    <button id="lookupBtn">Lookup UID by Email</button>
+  </div>
+  <pre id="out" style="background:#f7f7f7;padding:8px;margin-top:12px"></pre>
+
+  <script type="module">
+    import { setAdminClaim, getUserUidByEmail } from './admin-helpers.js';
+    const out = document.getElementById('out');
+    document.getElementById('setAdminBtn').addEventListener('click', async ()=>{
+      const url = document.getElementById('fnUrl').value.trim();
+      const secret = document.getElementById('fnSecret').value.trim();
+      const uid = document.getElementById('userUid').value.trim();
+      if(!url || !secret || !uid) return out.textContent = 'Provide URL, secret and uid';
+      out.textContent = 'Calling...';
+      try{
+        const res = await setAdminClaim(url, uid, secret);
+        out.textContent = JSON.stringify(res, null, 2);
+      }catch(e){ out.textContent = e.message; }
+    });
+
+    document.getElementById('lookupBtn').addEventListener('click', async ()=>{
+      const url = document.getElementById('fnUrl').value.trim();
+      const secret = document.getElementById('fnSecret').value.trim();
+      const email = prompt('Enter user email to lookup UID');
+      if(!url || !secret || !email) return out.textContent = 'Provide function URL, secret and an email';
+      out.textContent = 'Looking up...';
+      try{
+        const res = await getUserUidByEmail(url.replace('/setAdmin','/getUserByEmail'), email, secret);
+        if(res && res.uid){ document.getElementById('userUid').value = res.uid; out.textContent = JSON.stringify(res, null, 2); }
+        else out.textContent = JSON.stringify(res, null, 2);
+      }catch(e){ out.textContent = e.message; }
+    });
+  </script>
+</body>
+</html>
