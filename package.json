@@ -1,0 +1,17 @@
+{
+  "name": "kothiyanz-website",
+  "version": "1.0.0",
+  "description": "Kothiyanz Restaurant Website - Premium Dining Experience in Koduvally",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static site'",
+    "lint": "echo 'No linting configured yet'"
+  },
+  "keywords": ["restaurant", "kothiyanz", "koduvally"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.3.1"
+  }
+}
